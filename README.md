@@ -1,7 +1,8 @@
 Stable Diffusion Auto Image Generator
 
-A fully automated image-generation pipeline powered by Stable Diffusion WebUI (AUTOMATIC1111). This tool cycles through an extensive list of high‑quality prompts, generates images on your local Stable Diffusion instance, saves them in PNG format, and repeats the process indefinitely.
+This codes can be upgrade for example add negative prompt or taller prompts should be better outputs. This project was just  for fun.
 
+A fully automated image-generation pipeline powered by Stable Diffusion WebUI (AUTOMATIC1111). This tool cycles through an extensive list of high‑quality prompts, generates images on your local Stable Diffusion instance, saves them in PNG format, and repeats the process indefinitely.
 This repository demonstrates how to orchestrate fully automatic prompt-based art generation using simple C# code, local GPU hardware, and the SD API.
 
 🔥 Highlights

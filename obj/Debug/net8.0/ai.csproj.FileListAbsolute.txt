@@ -1,0 +1,14 @@
+C:\Users\mehme\source\repos\ai\bin\Debug\net8.0\ai.exe
+C:\Users\mehme\source\repos\ai\bin\Debug\net8.0\ai.deps.json
+C:\Users\mehme\source\repos\ai\bin\Debug\net8.0\ai.runtimeconfig.json
+C:\Users\mehme\source\repos\ai\bin\Debug\net8.0\ai.dll
+C:\Users\mehme\source\repos\ai\bin\Debug\net8.0\ai.pdb
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.AssemblyInfoInputs.cache
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.AssemblyInfo.cs
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.csproj.CoreCompileInputs.cache
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.dll
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\refint\ai.dll
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.pdb
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ai.genruntimeconfig.cache
+C:\Users\mehme\source\repos\ai\obj\Debug\net8.0\ref\ai.dll
