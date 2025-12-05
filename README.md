@@ -115,7 +115,7 @@ positivePrompts: Huge list of cinematic / creative prompts
 Error handling: Missing images, API errors, failed connections
 
 🛠️ Customization
-
+//this details makes perfect 👌
 You can change:
 
 steps
@@ -151,10 +151,6 @@ Using a different port
 Slow generation
 
 Increase VRAM efficiency by lowering resolution or steps
-
-🤝 Contributing
-
-PRs, improvements, and new creative prompts are welcome.
 
 📄 License
 
