@@ -1,157 +1,207 @@
-Stable Diffusion Auto Image Generator
+# 🎨 Stable Diffusion Auto Image Generator
 
-This codes can be upgrade for example add negative prompt or taller prompts should be better outputs. This project was just  for fun.
+A fully automated image-generation pipeline powered by **Stable Diffusion WebUI (AUTOMATIC1111)**.
 
-A fully automated image-generation pipeline powered by Stable Diffusion WebUI (AUTOMATIC1111). This tool cycles through an extensive list of high‑quality prompts, generates images on your local Stable Diffusion instance, saves them in PNG format, and repeats the process indefinitely.
-This repository demonstrates how to orchestrate fully automatic prompt-based art generation using simple C# code, local GPU hardware, and the SD API.
+This project demonstrates how to orchestrate fully automatic prompt-based art generation using:
 
-🔥 Highlights
+- C# (.NET 6+)
+- Local GPU hardware
+- Stable Diffusion API
 
-✔️ Automated txt2img pipeline (no user interaction required)
+> ⚡ Built for experimentation, automation, and dataset generation.
 
-✔️ Large curated prompt list
+---
 
-✔️ Saves Base64 → PNG automatically
+## 🔥 Highlights
 
-✔️ Error‑resilient loop (timeouts, empty outputs, API failures)
+✔️ Fully automated `txt2img` pipeline (no user interaction required)  
+✔️ Large curated cinematic prompt list  
+✔️ Automatic Base64 → PNG conversion  
+✔️ Infinite generation loop  
+✔️ Error-resilient (timeouts, empty outputs, API failures)  
+✔️ Configurable steps, sampler, resolution, CFG scale  
+✔️ Mid-range GPU friendly  
 
-✔️ Configurable generation steps, sampler, resolution, CFG scale
+---
 
-✔️ Hardware-friendly — designed for mid‑range GPUs
+## 💻 Test Environment
 
-💻 Test Environment
+This project was developed and benchmarked on:
 
-This project was developed and benchmarked on the following hardware:
+- **CPU:** Intel Core i5 (12th Gen)  
+- **GPU:** NVIDIA RTX 3050 Ti (Laptop)  
+- **RAM:** 16 GB  
+- **Stable Diffusion WebUI:** AUTOMATIC1111  
+- **.NET Version:** .NET 6+  
 
-CPU: Intel Core i5 12th Gen
+### ⏱️ Typical Generation Speed
 
-GPU: NVIDIA RTX 3050 Ti (Laptop Edition)
+- **512x512:** ~5–7 seconds  
+- **1080x700 (default):** ~10–15 seconds  
 
-RAM: 16 GB
+---
 
-Stable Diffusion WebUI: AUTOMATIC1111
+## 🖼️ Sample Outputs
 
-.NET Version: .NET 6+
+Below are example images generated using this exact script and hardware:
 
-Typical generation speed on this system:
-
-512x512: ~5–7 seconds
-
-1080×700 (project default): ~10–15 seconds
-
-🖼️ Sample Outputs
-
-Below are 5 sample images generated using this exact script and hardware:
-
-(You can drag & drop your images here after uploading them to the repo:)
-
+```
 samples/sample1.png
-
 samples/sample2.png
-
 samples/sample3.png
-
 samples/sample4.png
-
 samples/sample5.png
+```
 
-📦 Requirements
+(Upload your images into the `samples/` folder to display them in GitHub.)
 
-To run this project, you need:
+---
 
-.NET 6 or newer
+## 📦 Requirements
 
-Stable Diffusion WebUI (AUTOMATIC1111)
+To run this project you need:
 
-API enabled in WebUI:
-
-Settings → API → Enable API
+- .NET 6 or newer
+- Stable Diffusion WebUI (AUTOMATIC1111)
+- API enabled in WebUI:
+  
+  `Settings → API → Enable API`
 
 Stable Diffusion must be running at:
 
+```
 http://127.0.0.1:7860
+```
 
-🚀 Installation
+---
 
-1) Start Stable Diffusion WebUI
+## 🚀 Installation
 
+### 1️⃣ Start Stable Diffusion WebUI
+
+```
 webui-user.bat
+```
 
-2) Clone this repository
+---
 
+### 2️⃣ Clone This Repository
+
+```
 git clone https://github.com/username/stable-diffusion-auto-generator.git
 cd stable-diffusion-auto-generator
+```
 
-3) Run the program
+---
 
+### 3️⃣ Run the Program
+
+```
 dotnet run
+```
 
-🧠 How It Works
+---
 
-The script:
+## 🧠 How It Works
 
-Selects a prompt from the predefined positivePrompts list
+The script performs the following loop:
 
-Sends a POST request to /sdapi/v1/txt2img
+1. Selects a prompt from the predefined `positivePrompts` list  
+2. Sends a POST request to `/sdapi/v1/txt2img`  
+3. Receives a Base64-encoded PNG  
+4. Converts and saves it as:
 
-Receives a Base64-encoded PNG
-
-Converts and saves it as:
-
+```
 output_YYYYMMDD_HHMMSS.png
+```
 
-Waits a configured duration
+5. Waits for a configured delay  
+6. Moves to the next prompt  
 
-Moves to the next prompt
+The cycle repeats indefinitely.
 
-It repeats forever—perfect for generating large image datasets.
+Perfect for:
 
-🔧 Code Structure Overview
+- Automated art generation
+- Dataset creation
+- Prompt experimentation
+- Stress testing hardware
 
-Program.cs: Main loop, HTTP calls, saving images
+---
 
-positivePrompts: Huge list of cinematic / creative prompts
+## 🔧 Code Structure Overview
 
-Error handling: Missing images, API errors, failed connections
+**Program.cs**
+- Main infinite loop
+- HTTP API calls
+- Image conversion & saving
 
-🛠️ Customization
-//this details makes perfect 👌
-You can change:
+**positivePrompts**
+- Large curated prompt list
+- Cinematic / creative presets
 
+**Error Handling**
+- Empty image responses
+- API failures
+- Connection timeouts
+- Invalid responses
+
+---
+
+## 🛠️ Customization
+
+You can easily modify:
+
+```
 steps
-
 cfg_scale
-
 width / height
-
 sampler_index
+generation delay
+prompt list & order
+inference seed
+```
 
-Delay between generations
+> Fine-tuning these parameters significantly impacts output quality and speed.
 
-Prompt list & order
+---
 
-Inference seed
+## ⚠️ Troubleshooting
 
-⚠️ Troubleshooting
+### ❌ Empty Images / "images missing"
 
-Empty images / "images missing"
+Possible causes:
 
-GPU overloaded
+- GPU overload  
+- Model loading error  
+- Sampler too heavy  
+- VRAM overflow  
 
-Model error
+---
 
-Sampler too heavy
+### ❌ Connection Refused
 
-Connection refused
+- WebUI not running  
+- Incorrect port  
+- API not enabled  
 
-WebUI not running
+---
 
-Using a different port
+### 🐢 Slow Generation
 
-Slow generation
+Try:
 
-Increase VRAM efficiency by lowering resolution or steps
+- Lower resolution  
+- Reduce `steps`  
+- Use lighter sampler  
+- Enable VRAM optimization in WebUI  
 
-📄 License
+---
+
+## 📄 License
 
 Distributed under the MIT License.
+
+---
+
+> This project was created for experimentation and fun — but it scales surprisingly well for automated dataset generation.
